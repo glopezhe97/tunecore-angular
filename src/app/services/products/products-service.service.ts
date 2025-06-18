@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { ProductInterface } from '../../product/interface/product-interface';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { ProductInterface } from '../../shared/interfaces/products/product-interface';
 import { HttpClient, HttpParams } from "@angular/common/http"; // API Calls
 
 @Injectable({
@@ -23,8 +23,17 @@ export class ProductsServiceService {
       .pipe(
           tap((products) => {
             this.productsSubject.next(products);
-            console.log(products);
           })
       );
   } 
+
+  //Get all products depending on category
+  getAllProductsByCategory(category: string = '', term: string): Observable<ProductInterface[]> {
+    return this.getAllProducts(term).pipe(
+      map(products => products.filter(product => product.category_name === category.trim())),
+      tap(filteredProducts => {
+        console.log('Productos filtrados por categoría:', filteredProducts);
+        this.productsSubject.next(filteredProducts)})
+    );
+  }
 }
