@@ -7,5 +7,6 @@ export interface ProductInterface {
     img_url: string,
     brand_name: string,
     category_name: string,
-    subcategory_name: string
+    subcategory_name: string,
+    product_type_names: string
 }

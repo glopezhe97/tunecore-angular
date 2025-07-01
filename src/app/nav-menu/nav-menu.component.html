@@ -1,0 +1,13 @@
+<header class="w-full p-1 bg-white flex items-center">
+    <div class="w-[7%]">
+        <img src="assets/img/tunecore-logo.svg" alt="">
+    </div>
+
+    <nav class="flex align-middle">
+    <ul class="flex space-x-4">
+        <li *ngFor="let route of routes">
+        <a [routerLink]="route.path" class="no-underline text-[#181818] hover:underline">{{ route.label }}</a>
+        </li>
+    </ul>
+    </nav>
+</header>
