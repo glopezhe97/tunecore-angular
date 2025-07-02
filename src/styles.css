@@ -5,3 +5,13 @@ body {
   font-family: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
+.carousel-prev-icon {
+  color: black;
+}
+
+.carousel-prev-icon:hover {
+  color: rgb(72, 72, 72);
+  cursor: pointer;
+}
+/* src/styles.css o global.css */
+

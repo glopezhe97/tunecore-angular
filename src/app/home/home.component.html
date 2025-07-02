@@ -1,4 +1,4 @@
-<section class="relative h-full w-full">
+<section class="relative h-4/5 w-full">
   <h2 class="font-workSans font-extralight z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-5xl text-center max-w-md leading-tight">
     More than music;<br />It's your essence
   </h2>
@@ -6,4 +6,26 @@
     <source srcset="assets/img/home.jpg" media="(min-width: 700px)" />
     <img src="assets/img/home.jpg" alt="Instrumentos musicales" class="w-full h-full object-cover" />
   </picture>
+</section>
+
+<section class="bg-amber-50 pt-10 px-9 mb-2">
+  <h3 class="text-[#222121] text-4xl mb-3">Featured Products</h3>
+   <ng-container *ngIf="products$ | async as products">
+      <p-carousel 
+        [value]="products" 
+        [numVisible]="3" 
+        [numScroll]="1" 
+        [circular]="true"
+        [showNavigators]="true"
+        [showIndicators]="true"
+      >
+        <ng-template pTemplate="item" let-product>
+          <div class="p-4 bg-white rounded-lg shadow-md text-left w-full  h-[350px]">
+            <img [src]="product.image" alt="{{ product.name }}" class="w-full h-48 object-cover rounded" />
+            <h4 class="text-lg text-gray-600 font-semibold mt-2">{{ product.name }}</h4>
+            <p class="text-sm text-gray-600">{{ product.description }}</p>
+          </div>
+        </ng-template>
+      </p-carousel>
+  </ng-container>
 </section>
