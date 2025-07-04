@@ -21,7 +21,7 @@
       >
         <ng-template pTemplate="item" let-product>
           <div class="p-4 bg-white rounded-lg shadow-md text-left w-full  h-[350px]">
-            <img [src]="product.image" alt="{{ product.name }}" class="w-full h-48 object-cover rounded" />
+            <img [src]="'assets/img/' + product.img_url[0]" alt="{{ product.name }}" class="w-full h-48 object-cover rounded-t-sm" />
             <h4 class="text-lg text-gray-600 font-semibold mt-2">{{ product.name }}</h4>
             <p class="text-sm text-gray-600">{{ product.description }}</p>
           </div>
