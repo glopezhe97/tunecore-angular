@@ -21,8 +21,7 @@ export class HomeComponent implements OnInit {
      this.products$ = this.productService.getAllProducts('')
       .pipe(
         map((products) => 
-          products.filter(product => product.isOnSale === true)),
-          tap(filteredProducts => console.log('Productos en oferta:', filteredProducts))
+          products.filter(product => product.featured === true))
       ); // products: fill observable
      console.log(this.products$);
    }

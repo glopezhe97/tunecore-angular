@@ -5,6 +5,10 @@ export const routes: Routes = [
         loadComponent: () => 
             import('./home/home.component').then(m => m.HomeComponent),
     },
+    {path: 'categories',
+        loadComponent: () => 
+            import('./category/category.component').then(m => m.CategoryComponent),
+    },
     {path: 'products/list',
         loadComponent: () => 
             import('./product/product-list/product-list.component').then(m => m.ProductListComponent),
