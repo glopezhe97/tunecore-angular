@@ -1,5 +1,9 @@
-<ul>
-    <li *ngFor="let category of categories$ | async">
-        {{category.name}}
-    </li>
-</ul>
+<section class="flex flex-wrap gap-5 mx-auto items-center justify-center pt-2.5">
+    <article *ngFor="let category of categories$ | async" class="w-1/4 mt-5 bg-amber-50 rounded-md pb-3.5 transform transition duration-300 hover:scale-105">
+        <div class="w-full aspect-[3/4] overflow-hidden rounded-t-md  hover:cursor-pointer" (click)="goToSubcategories(category.name)">
+            <img [src]="'assets/img/' + category.image" alt="{{ category.name }}" 
+            class="w-full object-cover h-full">
+        </div>
+        <h3 class="text-center my-1.5 mx-auto p-2 text-[#080808] hover:underline hover:cursor-pointer" (click)="goToSubcategories(category.name)">{{ category.name }}</h3>
+    </article>
+</section>

@@ -11,7 +11,7 @@ import { NgFor } from '@angular/common';
 export class NavMenuComponent {
   public routes = [
     { path: '', label: 'Home' },
-    { path: 'shop', label: 'Shop' },
+    { path: 'categories', label: 'Categories' },
     { path: 'about', label: 'About' }
   ];
 }

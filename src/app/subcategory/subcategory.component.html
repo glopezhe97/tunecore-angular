@@ -1,0 +1,8 @@
+<section class="flex flex-wrap gap-5 mx-auto items-center justify-center pt-2.5">
+    <article *ngFor="let subcategory of subcategories$ | async" class="w-1/4 mt-5">
+        <div class="w-full aspect-[3/4] overflow-hidden rounded-md">
+            <img [src]="'assets/img/' + subcategory.image" alt="{{ subcategory.name }}" class="w-full object-cover h-full">
+        </div>
+        <small class="text-center mx-auto">{{ subcategory.name }}</small>
+    </article>
+</section>
