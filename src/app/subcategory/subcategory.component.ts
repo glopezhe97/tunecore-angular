@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubcategoryServiceService } from '../services/subcategory/subcategory-service.service';
 import { SubcategoryInterface } from '../shared/interfaces/subcategory/subcategory-interface';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-subcategory',
@@ -16,9 +16,17 @@ export class SubcategoryComponent implements OnInit{
   public subcategories$!: Observable<SubcategoryInterface[]>;
   category!: string;
 
-  constructor(private subcategoryService: SubcategoryServiceService, private route: ActivatedRoute, ) {}
+  constructor(private subcategoryService: SubcategoryServiceService, 
+    private route: ActivatedRoute, 
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.category = this.route.snapshot.paramMap.get('category')!;
-    this.subcategories$ = this.subcategoryService.getAllSubcategoriesByCategory(this.category);  }
+    this.subcategories$ = this.subcategoryService.getAllSubcategoriesByCategory(this.category);  
+  }
+
+  goToTypesBySubcategory(subcategory: string): void {
+    this.router.navigate(['type/', subcategory]);
+  }
 }
